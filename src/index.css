@@ -1,0 +1,61 @@
+/* ── Reset & base ──────────────────────────────────────────── */
+:root {
+  --bg:       #18181b;
+  --surface:  #27272a;
+  --text:     #f4f4f5;
+  --muted:    #a1a1aa;
+  --green:    #22c55e;
+  --yellow:   #eab308;
+  --red:      #ef4444;
+  --blue:     #3b82f6;
+  --radius:   12px;
+  --btn-size: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Haptic visual buzz (universal fallback) ───────────────── */
+.haptic-buzz {
+  animation: buzzLight 0.12s ease-out;
+}
+
+.haptic-buzz-heavy {
+  animation: buzzHeavy 0.18s ease-out;
+}
+
+@keyframes buzzLight {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-1px); }
+  75%      { transform: translateX(1px); }
+}
+
+@keyframes buzzHeavy {
+  0%, 100% { transform: translateX(0); }
+  15%      { transform: translateX(-3px); }
+  35%      { transform: translateX(3px); }
+  55%      { transform: translateX(-2px); }
+  75%      { transform: translateX(2px); }
+}
